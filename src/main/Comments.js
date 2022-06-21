@@ -221,7 +221,7 @@ export default class Comments extends Component {
             </View>
           }
         />
-        <ScrollView style={{backgroundColor: '#e4e4ed', height: '89%'}}>
+        <ScrollView  style={{backgroundColor: '#e4e4ed', height: '89%'}}>
           <TouchableOpacity
             onPress={() => {
               this.props.navigation.navigate('CreateTask');
@@ -351,24 +351,25 @@ export default class Comments extends Component {
                     margin: 10,
                     marginLeft: 15,
                     fontFamily: 'sans-serif',
-                    color:'grey'
+                    color: 'grey',
                   }}>
                   Created
                 </Text>
                 <Text
                   style={{
                     fontFamily: 'sans-serif',
-                    marginTop: 7,marginLeft:-5,
-                    color:'grey'
+                    marginTop: 7,
+                    marginLeft: -5,
+                    color: 'grey',
                   }}>
                   .
                 </Text>
                 <Text
                   style={{
                     margin: 10,
-                    marginLeft:5,
+                    marginLeft: 5,
                     fontFamily: 'sans-serif',
-                    color:'grey'
+                    color: 'grey',
                   }}>
                   12 Jun 2021
                 </Text>
@@ -438,7 +439,7 @@ export default class Comments extends Component {
               </View>
             </View>
           </TouchableOpacity>
-          <FlatList
+          <FlatList 
             data={[
               {key: 'Android'},
               {key: 'iOS'},

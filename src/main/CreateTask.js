@@ -412,9 +412,13 @@ export default class CreateTask extends Component {
                 {/* </View> */}
               </View>
               <View
-                style={{justifyContent: 'space-between', flexDirection: 'row',
+                style={{
+                  justifyContent: 'space-between',
+                  flexDirection: 'row',
                   borderBottomWidth: 0.3,
-                  borderBottomColor: 'grey',height:50}}>
+                  borderBottomColor: 'grey',
+                  height: 50,
+                }}>
                 <Text
                   style={{
                     fontSize: 17,
@@ -433,12 +437,13 @@ export default class CreateTask extends Component {
                     // margin: 10,
                     alignSelf: 'flex-end',
                     flexDirection: 'row',
-                      marginBottom:10
+                    marginBottom: 10,
                   }}>
                   <Entypo
                     name="calendar"
                     style={{
-                      marginLeft: 25,}}
+                      marginLeft: 25,
+                    }}
                     color="grey"
                     size={20}
                     onPress={() => {
@@ -490,7 +495,8 @@ export default class CreateTask extends Component {
                   <Entypo
                     name="calendar"
                     style={{
-                      marginLeft: 25,}}
+                      marginLeft: 25,
+                    }}
                     color="grey"
                     size={20}
                     onPress={() => {
@@ -520,15 +526,31 @@ export default class CreateTask extends Component {
               </View>
             </View>
             <View style={{backgroundColor: '#ffffff'}}>
-              <Text
+              <View
                 style={{
-                  fontSize: 20,
-                  fontFamily: 'sans-serif',
-                  fontWeight: 'bold',
-                  margin: 10,
+                  marginLeft: 5,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginBottom: -10,
                 }}>
-                Attachments
-              </Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'sans-serif',
+                    fontWeight: 'bold',
+                    margin: 10,
+                  }}>
+                  Attechments
+                </Text>
+                <Entypo
+                  name="plus"
+                  size={30}
+                  style={{margin: 10, marginTop: 5}}
+                  // onPress={() => {
+                  //   this.props.navigation.navigate('CreateProject');
+                  // }}
+                />
+              </View>
               <FlatList
                 numColumns={3}
                 data={[{key: 'Android'}, {key: 'iOS'}, {key: 'iOS'}]}
