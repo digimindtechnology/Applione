@@ -42,7 +42,34 @@ export default class Chats extends Component {
     this.state = {
       loading: false,
       refreshing: false,
-      GetBookingChat: [],
+      GetBookingChat: [
+        {
+          key: true,
+          chat_image:
+            'https://everdriver.in/media/company_doc/4/booking/531/IMG-20220108-WA0004_3EItXaq.jpg',
+        },
+        {
+          key: false,
+          chat_image: null,
+        },
+        {
+          key: true,
+          chat_image:null,
+        },
+        {
+          key: false,
+          chat_image:
+            'https://picsum.photos/200/301.jpg',
+        },
+        {
+          key: true,
+          chat_image:null,
+        },
+        {
+          key: false,
+          chat_image: null,
+        },
+      ],
       mediaStore: '',
       chat_text: '',
       s: true,
@@ -183,9 +210,18 @@ export default class Chats extends Component {
   Item = ({item}) => {
     return (
       <View style={{}}>
-        {this.state.s == true ? (
-          <View style={{alignItems: 'flex-end', justifyContent: 'center',flexDirection:'row'}}>
-          <FontAwesome name="mail-forward" size={20} style={{color:'grey',marginLeft:150,marginBottom:100}}/>
+        {item.key == true ? (
+          <View
+            style={{
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+              flexDirection: 'row',
+            }}>
+            <FontAwesome
+              name="mail-forward"
+              size={20}
+              style={{color: 'grey', marginLeft: 150, marginBottom:item.chat_image == null ?25: 100}}
+            />
             <View
               style={{
                 backgroundColor: '#cee2eb',
@@ -193,30 +229,30 @@ export default class Chats extends Component {
                 borderBottomEndRadius: 10,
                 borderBottomLeftRadius: 10,
                 marginLeft: 10,
-                marginRight:10,
+                marginRight: 10,
                 marginVertical: 8,
                 borderTopLeftRadius: 10,
                 borderBottomLeftRadius: 10,
-                width:330
+                width: 300,
               }}>
-              {/* {item.chat_image ? ( */}
+              {item.chat_image == null ? null : (
                 <Image
                   source={{
-                    uri: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202111/000_9RU7RZ_1200x768.jpeg',
+                    uri: item.chat_image,
                   }}
                   resizeMode="stretch"
                   style={{
-                    width: 250,
+                    width: 230,
                     height: 170,
                     borderRadius: 10,
                     marginBottom: 5,
                   }}
                 />
-              {/* ) : null} */}
-              <Text style={{fontSize: 14,fontFamily:'sans-serif',
-                width:250}}>
-                hello nihal nagar react native 11
-                hello nihal nagar react native 11
+              )}
+              <Text
+                style={{fontSize: 14, fontFamily: 'sans-serif', width: 250}}>
+                hello nihal nagar react native 11 hello nihal nagar react native
+                11
               </Text>
               <Text
                 style={{
@@ -246,19 +282,19 @@ export default class Chats extends Component {
               }}
             />
             <View>
-            <Text
-              style={{
-                color: 'grey',
-                fontSize: 12,
-                fontFamily: 'notoserif',
-                marginBottom:-5
-              }}>
-              nihal nagar
-            </Text>
+              <Text
+                style={{
+                  color: 'grey',
+                  fontSize: 12,
+                  fontFamily: 'notoserif',
+                  marginBottom: -5,
+                }}>
+                nihal nagar
+              </Text>
               <View
                 style={{
                   backgroundColor: '#cdd2d4',
-                //   
+                  //
                   padding: 5,
                   borderBottomEndRadius: 10,
                   borderBottomLeftRadius: 10,
@@ -267,24 +303,22 @@ export default class Chats extends Component {
                   borderTopRightRadius: 10,
                   borderBottomRightRadius: 10,
                 }}>
-                {/* {item.chat_image ? ( */}
+                {item.chat_image == null ? null : (
                   <Image
-                   source={{
-                    uri: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202111/000_9RU7RZ_1200x768.jpeg',
-                  }}
-                    resizeMode="stretch"
+                    source={{
+                      uri: item.chat_image,
+                    }}
+                    resizeMode="cover"
                     style={{
                       width: 230,
                       height: 170,
-                      borderRadius: 10,
                       marginBottom: 5,
                     }}
                   />
-                {/* ) : null} */}
-                <Text style={{fontSize: 14, }}>
-                  hello nihal nagar react native
-                hello nihal nagar react native 11
-                hello nihal nagar react native 11
+                )}
+                <Text style={{fontSize: 14}}>
+                  hello nihal nagar react native hello nihal nagar react native
+                  11 hello nihal nagar react native 11
                 </Text>
                 <Text
                   style={{
@@ -322,21 +356,22 @@ export default class Chats extends Component {
             </TouchableOpacity>
           }
           leftComponent={
-            <View style={{flexDirection:'row'}}>
-             <Entypo
-                  name="chevron-left"
-                  color="black"
-                  size={28}
-                  onPress={() => {
-                    this.props.navigation.goBack();
-                  }}
-                />
+            <View style={{flexDirection: 'row'}}>
+              <Entypo
+                name="chevron-left"
+                color="black"
+                size={28}
+                onPress={() => {
+                  this.props.navigation.goBack();
+                }}
+              />
               <Text
                 style={{
                   fontSize: 25,
                   fontFamily: 'Lato-Bold',
                   fontWeight: 'bold',
-                  width: 250,marginLeft: 5
+                  width: 250,
+                  marginLeft: 5,
                 }}>
                 Chats
               </Text>
@@ -358,14 +393,7 @@ export default class Chats extends Component {
                 enabled={true}
               />
             }
-            data={[
-              {key: 'Android'},
-              {key: 'iOS'},
-              {key: 'iOS'},
-              {key: 'iOS'},
-              {key: 'iOS'},
-              {key: 'iOS'},
-            ]}
+            data={this.state.GetBookingChat}
             renderItem={this.Item}
           />
           {this.state.ImageSource ? (
@@ -379,7 +407,7 @@ export default class Chats extends Component {
               }}
             />
           ) : null}
-          <View style={{flexDirection: 'row', marginTop: 10,marginBottom:10}}>
+          <View style={{flexDirection: 'row', marginTop: 10, marginBottom: 10}}>
             <View
               style={{
                 backgroundColor: '#2452c9',
@@ -426,13 +454,13 @@ export default class Chats extends Component {
                 borderRadius: 100 / 2,
                 padding: 8,
                 elevation: 10,
-                width:50
+                width: 50,
               }}>
               <MaterialCommunityIcons
                 name="send"
                 size={25}
                 color={'white'}
-                style={{elevation: 10,padding:3,marginLeft:3}}
+                style={{elevation: 10, padding: 3, marginLeft: 3}}
                 // onPress={() => this.AddBookingChat()}
               />
             </TouchableOpacity>

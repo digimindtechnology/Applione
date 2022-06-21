@@ -126,7 +126,7 @@ export default class CreateProject extends Component {
         <View>
           {/* first step */}
 
-          <ScrollView style={{height:'88%'}}>
+          <ScrollView style={{height: '88%',}}>
             <View style={{marginTop: 20, marginBottom: 10}}>
               <TouchableOpacity
                 style={{
@@ -1499,21 +1499,32 @@ export default class CreateProject extends Component {
         </View>
         {this.state.loading == true ? <Loading /> : null}
 
-        <Modal transparent={true} visible={this.state.Team}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+
+          visible={this.state.Team}>
           <View
             style={{
-              backgroundColor: '#000000aa',
-              flex: 1,
-              padding: 15,
-              paddingTop: 230,
-              paddingBottom: 230,
+              // backgroundColor: 'grey',
+              // flex: 1,
+              // padding: 15,
+              // paddingTop: 230,
+              // paddingBottom: 230,
+              height: '40%',
+              marginTop: 'auto',
+              // elevation: 100,
+              // borderTopLeftRadius: 30,
+              // borderTopRightRadius: 30,
             }}>
             <View
-              style={{
-                backgroundColor: '#ffffff',
+              style={{backgroundColor: '#fff',
                 flex: 1,
                 padding: 10,
-                borderRadius: 5,
+                borderTopLeftRadius: 30,
+                borderTopRightRadius: 30,
+              borderWidth:0.5,
+              borderColor:'grey'
               }}>
               <View
                 style={{
@@ -1555,6 +1566,8 @@ export default class CreateProject extends Component {
                   alignSelf: 'center',
                   marginTop: 30,
                 }}
+                keyboardAppearance={false}
+                autoFocus={true}
                 //   onChangeText={(_) => {
                 //     this.setState({chat_text: _});
                 //   }}
